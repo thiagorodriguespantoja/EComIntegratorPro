@@ -1,0 +1,6 @@
+@E_Com_Integrator_HostAddress = http://localhost:5282
+
+GET {{E_Com_Integrator_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

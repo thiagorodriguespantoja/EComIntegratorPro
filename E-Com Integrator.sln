@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Com Integrator", "E-Com Integrator\E-Com Integrator.csproj", "{565D6304-8AB1-4A3A-A673-22AF529B44E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{565D6304-8AB1-4A3A-A673-22AF529B44E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{565D6304-8AB1-4A3A-A673-22AF529B44E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{565D6304-8AB1-4A3A-A673-22AF529B44E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{565D6304-8AB1-4A3A-A673-22AF529B44E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D5D4706-A9B4-4056-B8A5-3D2F63BED5D3}
+	EndGlobalSection
+EndGlobal
