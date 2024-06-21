@@ -1,35 +1,43 @@
-﻿// /Tests/ProductServiceTests.cs
+﻿using Xunit;
 using Moq;
+using EComIntegrator.Models;
+using EComIntegrator.Repositories;
+using EComIntegrator.Services;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-public class ProductServiceTests
+namespace EComIntegrator.Tests
 {
-    private readonly Mock<IProductRepository> _mockProductRepository;
-    private readonly IProductService _productService;
-
-    public ProductServiceTests()
+    public class ProductServiceTests
     {
-        _mockProductRepository = new Mock<IProductRepository>();
-        _productService = new ProductService(_mockProductRepository.Object);
-    }
+        private readonly Mock<IProductRepository> _mockProductRepository;
+        private readonly IProductService _productService;
 
-    [Fact]
-    public async Task GetAllProducts_ReturnsListOfProducts()
-    {
-        // Arrange
-        var products = new List<Product>
+        public ProductServiceTests()
         {
-            new Product { Id = 1, Name = "Product 1", Price = 10 },
-            new Product { Id = 2, Name = "Product 2", Price = 20 }
-        };
-        _mockProductRepository.Setup(repo => repo.GetAllAsync()).ReturnsAsync(products);
+            _mockProductRepository = new Mock<IProductRepository>();
+            _productService = new ProductService(_mockProductRepository.Object);
+        }
 
-        // Act
-        var result = await _productService.GetAllProductsAsync();
+        [Fact]
+        public async Task GetAllProducts_ReturnsListOfProducts()
+        {
+            // Arrange
+            var products = new List<Product>
+            {
+                new Product { Id = 1, Name = "Product 1", Price = 10 },
+                new Product { Id = 2, Name = "Product 2", Price = 20 }
+            };
+            _mockProductRepository.Setup(repo => repo.GetAllAsync()).ReturnsAsync(products);
 
-        // Assert
-        Assert.Equal(2, result.Count());
-        Assert.Equal("Product 1", result.First().Name);
+            // Act
+            var result = await _productService.GetAllProductsAsync();
+
+            // Assert
+            Assert.Equal(2, result.Count());
+            Assert.Equal("Product 1", result[0].Name);
+        }
+
+        // Add more tests as needed
     }
-
-    // Add more tests as needed
 }

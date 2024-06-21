@@ -1,5 +1,4 @@
-﻿using E_Com_Integrator.Data;
-using EComIntegrator.Configurations;
+﻿using EComIntegrator.Configurations;
 using EComIntegrator.Data;
 using EComIntegrator.Repositories;
 using EComIntegrator.Services;
