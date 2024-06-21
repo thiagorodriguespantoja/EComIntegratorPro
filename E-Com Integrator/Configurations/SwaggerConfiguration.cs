@@ -1,17 +1,21 @@
-﻿public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-{
-    if (env.IsDevelopment())
-    {
-        app.UseDeveloperExceptionPage();
-        app.UseSwagger();
-        app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "YourAPI v1"));
-    }
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 
-    app.UseHttpsRedirection();
-    app.UseRouting();
-    app.UseAuthorization();
-    app.UseEndpoints(endpoints =>
+namespace EComIntegrator.Configurations
+{
+    public static class SwaggerConfiguration
     {
-        endpoints.MapControllers();
-    });
+        public static void AddSwaggerConfiguration(this IServiceCollection services)
+        {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "E-Com Integrator API",
+                    Description = "API for integrating Bagy, Bling, and other tools for e-commerce",
+                });
+            });
+        }
+    }
 }

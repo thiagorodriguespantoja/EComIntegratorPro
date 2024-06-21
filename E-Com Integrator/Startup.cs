@@ -1,16 +1,46 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using E_Com_Integrator.Data;
+using EComIntegrator.Configurations;
+using EComIntegrator.Data;
+using EComIntegrator.Repositories;
+using EComIntegrator.Services;
+using Microsoft.EntityFrameworkCore;
 
-public class YourDbContext : DbContext
+public class Startup
 {
-    public YourDbContext(DbContextOptions<YourDbContext> options) : base(options) { }
-    public DbSet<Product> Products { get; set; }
-}
+    public IConfiguration Configuration { get; }
 
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddDbContext<YourDbContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-    services.AddControllers();
-    services.AddSwaggerGen();
-    // Add other necessary services
+    public Startup(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddDbContext<YourDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+        services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IProductService, ProductService>();
+
+        services.AddControllers();
+        services.AddSwaggerConfiguration(); // Configuração do Swagger
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "E-Com Integrator API v1"));
+        }
+
+        app.UseHttpsRedirection();
+        app.UseRouting();
+        app.UseAuthorization();
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
+    }
 }
