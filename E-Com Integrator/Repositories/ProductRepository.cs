@@ -1,6 +1,5 @@
-﻿// /Repositories/ProductRepository.cs
-using E_Com_Integrator.Data;
-using EComIntegrator.Data; // Adicione esta linha para importar o namespace do DbContext
+﻿using E_Com_Integrator.Data;
+using EComIntegrator.Data;
 using EComIntegrator.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;

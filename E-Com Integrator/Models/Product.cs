@@ -1,8 +1,10 @@
-﻿// /Models/Product.cs
-public class Product
+﻿namespace EComIntegrator.Models
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public decimal Price { get; set; }
-    // Other properties
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        // Other properties
+    }
 }

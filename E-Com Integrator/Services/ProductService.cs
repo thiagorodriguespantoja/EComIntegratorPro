@@ -1,5 +1,4 @@
-﻿// /Services/ProductService.cs
-using EComIntegrator.Models;
+﻿using EComIntegrator.Models;
 using EComIntegrator.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;

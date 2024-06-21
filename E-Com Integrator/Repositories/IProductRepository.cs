@@ -1,5 +1,4 @@
-﻿// /Repositories/IProductRepository.cs
-using EComIntegrator.Models;
+﻿using EComIntegrator.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
