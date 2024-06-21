@@ -34,7 +34,7 @@ namespace EComIntegrator.Tests
             var result = await _productService.GetAllProductsAsync();
 
             // Assert
-            Assert.Equal(2, result.Count());
+            Assert.Equal(2, result.Count);
             Assert.Equal("Product 1", result[0].Name);
         }
 

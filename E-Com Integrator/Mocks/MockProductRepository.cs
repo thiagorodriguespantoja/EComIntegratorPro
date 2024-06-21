@@ -4,7 +4,7 @@ using EComIntegrator.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace EComIntegrator.Mocks
+namespace EComIntegrator.Tests.Mocks
 {
     public class MockProductRepository : Mock<IProductRepository>
     {
